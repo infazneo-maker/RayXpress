@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RayXpress - Instant Food Delivery</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#ffffff;
+  color:#000;
+  text-align:center;
+}
+
+/* Smooth Fade Animation */
+.fade {
+  opacity:0;
+  transform:translateY(40px);
+  transition: all 0.8s ease;
+}
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+header {
+  padding:60px 20px;
+}
+
+h1 { font-size:40px; }
+
+.section {
+  padding:60px 20px;
+}
+
+.stats {
+  font-size:24px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+/* Store badges */
+.store-badges img {
+  width:200px;
+  margin:15px;
+  transition:0.3s;
+}
+.store-badges img:hover {
+  transform:scale(1.05);
+}
+
+/* Screenshot Slider */
+.slider {
+  position:relative;
+  max-width:300px;
+  margin:40px auto;
+  overflow:hidden;
+}
+.slides {
+  display:flex;
+  transition: transform 0.6s ease;
+}
+.slides img {
+  width:300px;
+  border-radius:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  font-size:26px;
+  padding:15px 18px;
+  border-radius:50%;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Sticky Buttons */
+.sticky-btn {
+  position:fixed;
+  left:0;
+  padding:12px 18px;
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  border-radius:0 8px 8px 0;
+  margin:5px 0;
+  font-size:14px;
+}
+.order-btn { top:150px; }
+.feedback-btn { top:200px; }
+.partner-btn { top:250px; }
+
+footer {
+  padding:30px;
+  border-top:1px solid #ddd;
+  font-size:14px;
+}
+</style>
+
+<!-- Auto Redirect -->
+<script>
+window.onload = function() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  if (/android/i.test(userAgent)) {
+      window.location.href = "https://play.google.com/store/apps/details?id=com.rayxpress.customer";
+  }
+
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href = "https://apps.apple.com/lk/app/rayxpress/id6751746112";
+  }
+};
+</script>
+
+</head>
+
+<body>
+
+<header class="fade">
+  <img src="logo.png" width="180">
+  <h1>Instant Delivery</h1>
+  <p>Fast. Fresh. Delivered</p>
+</header>
+
+<div class="section fade">
+  <div class="stats">40+ Restaurants Partnered</div>
+  <div class="stats">Coverage: Bandarawela & Welimada</div>
+
+  <div class="store-badges">
+    <a href="https://play.google.com/store/apps/details?id=com.rayxpress.customer" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+    </a>
+
+    <a href="https://apps.apple.com/lk/app/rayxpress/id6751746112" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+    </a>
+  </div>
+</div>
+
+<div class="section fade">
+  <h2>App Screenshots</h2>
+
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="screenshot1.png">
+      <img src="screenshot2.png">
+      <img src="screenshot3.png">
+      <img src="screenshot4.png">
+      <img src="screenshot5.png">
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 RayXpress. All Rights Reserved.
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/94776691157" target="_blank" class="whatsapp-float">
+  💬
+</a>
+
+<!-- Sticky Buttons -->
+<a href="https://play.google.com/store/apps/details?id=com.rayxpress.customer" target="_blank" class="sticky-btn order-btn">
+  Order Now
+</a>
+
+<a href="https://forms.gle/6CxUA23RHQfj4k2h6" target="_blank" class="sticky-btn feedback-btn">
+  Feedback
+</a>
+
+<a href="https://forms.gle/6GqjBZiqsLFBv3Dw9" target="_blank" class="sticky-btn partner-btn">
+  Partner Register
+</a>
+
+<!-- Slider Script -->
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+setInterval(() => {
+  index = (index + 1) % total;
+  slides.style.transform = `translateX(-${index * 300}px)`;
+}, 3000);
+</script>
+
+<!-- Scroll Animation Script -->
+<script>
+const faders = document.querySelectorAll(".fade");
+window.addEventListener("scroll", () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
